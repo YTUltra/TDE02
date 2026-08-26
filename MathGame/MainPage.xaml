@@ -40,7 +40,8 @@
                    Keyboard="Numeric" HorizontalOptions="Center" VerticalOptions="Start" />
 
             <Button x:Name="btOK" Text="Conferir Resultado" FontSize="18"
-                    Clicked="Button_Clicked" />
+                    Clicked="Button_Clicked"
+                    IsEnabled="True"/>
 
             <Image x:Name="imR" Source="question.png" Aspect="AspectFit"
                    HorizontalOptions="Center" VerticalOptions="Center"

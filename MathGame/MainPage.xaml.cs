@@ -23,6 +23,7 @@ namespace MathGame
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
+            btOK.IsEnabled = false;
             if(pkDificuldade.SelectedIndex == -1)
             {
                 pkDificuldade.SelectedIndex = 0;
@@ -80,6 +81,7 @@ namespace MathGame
                 pbProgresso.Progress = 0;
             }
             GerarJogo();
+            btOK.IsEnabled = true;
         }
 
         private async void btPlacar_Clicked(object sender, EventArgs e)
