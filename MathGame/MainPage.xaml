@@ -5,13 +5,28 @@
 
     <ScrollView>
         <VerticalStackLayout
-            Padding="30,100">
+            Padding="30"
+            Spacing="5">
             <Label Text="Desafio Matemático"
-                   FontSize="32" HorizontalOptions="Center" VerticalOptions="Start" />
+                   FontSize="24" HorizontalOptions="Center" VerticalOptions="Start" />
             
             <Image Source="math.png" Aspect="Center"
                    HorizontalOptions="Center" VerticalOptions="Center" />
             
+            <Label Text="Dificuldade" FontSize="18"
+                   HorizontalOptions="Center" VerticalOptions="Start" />
+
+            <Picker x:Name="pkDificuldade" Title="Mudar a dificuldade"
+                    HorizontalOptions="Center" VerticalOptions="Start">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Fácil</x:String>
+                        <x:String>Médio</x:String>
+                        <x:String>Difícil</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
             <Label Text="Resolve o desafio matemático abaixo:" FontSize="18"
                    HorizontalOptions="Center" VerticalOptions="Start" />
 
@@ -21,19 +36,55 @@
                 <Label x:Name="lb3" FontSize="30" />
             </HorizontalStackLayout>
             
-            <Entry x:Name="txR" Placeholder="Digite a resposta aqui..." FontSize="24"
+            <Entry x:Name="txR" Placeholder="Digite a resposta aqui..." FontSize="18"
                    Keyboard="Numeric" HorizontalOptions="Center" VerticalOptions="Start" />
 
-            <Button x:Name="btOK" Text="Conferir Resultado" FontSize="24"
+            <Button x:Name="btOK" Text="Conferir Resultado" FontSize="18"
                     Clicked="Button_Clicked" />
 
-            <Image x:Name="imR" Source="question.png" Aspect="Center"
-                   HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Image x:Name="imR" Source="question.png" Aspect="AspectFit"
+                   HorizontalOptions="Center" VerticalOptions="Center"
+                   HeightRequest="75" WidthRequest="75"/>
+
+            <Border x:Name="timerBorder"
+                    Stroke="DarkRed"
+                    StrokeThickness="2"
+                    BackgroundColor="Black"
+                    Padding="10,5"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10" />
+                </Border.StrokeShape>
+
+                <Label x:Name="lbTimer"
+                        Text="00"
+                        FontSize="32"
+                        FontAttributes="Bold"
+                        TextColor="LimeGreen"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center" />
+            </Border>
+
+
+            <Label x:Name="lbPontos" FontSize="18" Text="Pontuação: 0"
+                   HorizontalOptions="Center" VerticalOptions="Start" />
 
             <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
-                <Label x:Name="lbAcertou" FontSize="30" Text="Acertos: 0" />
-                <Label x:Name="lbErrou" FontSize="30" Text="Erros: 0" />
+                <Label x:Name="lbAcertou" FontSize="18" Text="Acertos: 0" />
+                <Label x:Name="lbErrou" FontSize="18" Text="Erros: 0" />
             </HorizontalStackLayout>
+
+            <Label Text="Progresso do jogo:" FontSize="12"/>
+            <ProgressBar x:Name="pbProgresso" Progress="0.1" HeightRequest="20"
+                         HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+            
+            <ImageButton x:Name="btPlacar" Source="placar.png" Aspect="AspectFit"
+                         HorizontalOptions="End" VerticalOptions="Center"
+                         Clicked="btPlacar_Clicked" BackgroundColor="White"
+                         HeightRequest="50" WidthRequest="50"
+                         Padding="4" CornerRadius="10"/>
         </VerticalStackLayout>
     </ScrollView>
 
